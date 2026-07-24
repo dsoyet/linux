@@ -23,7 +23,7 @@ function cz { E:\Mpv\tools\chezmoi.exe --config "E:\Job\chezmoi\chezmoi.toml" @a
 function oss { E:\Mpv\tools\ossutil.exe -c "E:\Job\chezmoi\oss" @args }
 function npp { E:\Notepad\notepad++.exe @args }
 function adb {  $env:HOME = "E:\Mpv\tools"; & "E:\Mpv\tools\adb.exe" $args }
-function cloud { E:\Mpv\tools\cloud.exe --config "E:\Job\chezmoi\Xanflorp.config" @args }
-function remote { E:\Mpv\tools\rclone.exe --config "E:\Job\chezmoi\Xanflorp.config" @args }
+function cloud { E:\Mpv\tools\cloud.exe --config "E:\Job\chezmoi\xanflorp.remote" @args }
+function remote { E:\Mpv\tools\rclone.exe --config "E:\Job\chezmoi\xanflorp.remote" @args }
 
 
