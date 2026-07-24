@@ -1,0 +1,134 @@
+Windows Registry Editor Version 5.00
+
+;Old explorer.exe
+[HKEY_CURRENT_USER\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}]
+[HKEY_CURRENT_USER\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32]
+@=""
+
+;Context Menu
+;C:\Users\Share\AppData\Roaming\Microsoft\Windows\SendTo
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked]
+"{09A47860-11B0-4DA5-AFA5-26D86198A780}"="Scan with Microsoft Defender"
+"{596AB062-B4D2-4215-9F74-E9109B0A8153}"="Restore previous versions"
+"{9F156763-7844-4DC4-B2B1-901F640F5155}"="Open in Terminal"
+"{5D652B62-B702-496A-92BC-92C308251FEA}"="Nutstore"
+"{EEE949EB-C9ED-4967-98B0-ED4E543BEFA5}"="115 Cloud"
+"{1d27f844-3a1f-4410-85ac-14651078412d}"="Troubleshoot compatibility"
+"{e2bf9676-5f8f-435c-97eb-11607a5bedf7}"="Share"
+"{3D1975AF-48C6-4f8e-A182-BE0E08FA86A9}"="NVIDIA Control Panel"
+"{470C0EBD-5D73-4d58-9CED-E91E22E23282}"="Pin to Start"
+"{7AD84985-87B4-4a16-BE58-8B72A5B390F7}"="Cast to Device"
+"{67F4D210-BFC2-4ADD-9A2A-C9B9E1F42C4F}"="WPS Office"
+"{AA147FFB-0B1F-4BB1-9B1E-8D062B35C146}"="WPS Cloud Upload"
+"{28A80003-18FD-411D-B0A3-3C81F618E22B}"="WPS Cloud Menu"
+"{AF1D7D2F-6AE8-4BAA-ABFA-738201F4871C}"="WPS Open With"
+"{1F2E5C41-9057-483F-807E-1D21C4AD21BA}"="WPS Doc Property"
+"{593F1699-1B70-4443-A2EE-39483EBA4346}"="WPS Shell Ext"
+
+;Hide Gallery
+[HKEY_CURRENT_USER\Software\Classes\CLSID\{E88865EA-0E1C-4E20-9AA6-EDCD0212C87C}]
+"System.IsPinnedToNameSpaceTree"=dword:00000000
+;Hide Home
+[HKEY_CURRENT_USER\Software\Classes\CLSID\{f874310e-b6b7-47dc-bc84-b9e6b38f5903}]
+"System.IsPinnedToNameSpaceTree"=dword:00000000
+
+;Add to Favorites
+[-HKEY_CLASSES_ROOT\*\shell\pintohomefile]
+;Pin to Quick access
+[-HKEY_CLASSES_ROOT\AllFilesystemObjects\shell\pintohome]
+[-HKEY_CLASSES_ROOT\Drive\shell\pintohome]
+[-HKEY_CLASSES_ROOT\Folder\shell\pintohome]
+[-HKEY_CLASSES_ROOT\Network\shell\pintohome]
+
+;Play
+[HKEY_CURRENT_USER\Software\Classes\Directory\shell\Play\command]
+@="E:\\Mpv\\Mpv.exe \"%1\""
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Play\command]
+@="E:\\Mpv\\Mpv.exe \"%1\""
+
+;Unzip
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Unzip\command]
+@="E:\\Telegram\\Zip.exe x \"%1\""
+
+;Notepad
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Notepad\command]
+@="E:\\Notepad\\notepad++.exe \"%1\""
+
+;Notepad
+[HKEY_CURRENT_USER\Software\Microsoft\Notepad]
+"lfFaceName"="Maple Mono NL NF CN"
+"iPointSize"=dword:0000008c
+"fWrap"=dword:00000001
+"StatusBar"=dword:00000000
+
+;Git
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\git_gui]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\git_shell]
+[-HKEY_CLASSES_ROOT\Directory\shell\git_gui]
+[-HKEY_CLASSES_ROOT\Directory\shell\git_shell]
+[-HKEY_CLASSES_ROOT\LibraryFolder\background\shell\git_gui]
+[-HKEY_CLASSES_ROOT\LibraryFolder\background\shell\git_shell]
+
+;Environment
+[HKEY_CURRENT_USER\Environment]
+"GIT_CONFIG_GLOBAL"="E:\\Job\\chezmoi\\gitconfig"
+"CUDA_PATH"="E:\\HD\\CUDA"
+"NODE_HOME"="E:\\HD\\Js"
+"STHOMEDIR"="E:\\Mpv\\Syncthing"
+"CARGO_HOME"="E:\\HD\\Rust\\cargo"
+"RUSTUP_HOME"="E:\\HD\\Rust\\bin"
+
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USB\VID_8087&PID_0033\5&274d72c6&0&14\Device Parameters]
+"TileMode"=dword:00000000
+
+;btrfs
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CI\Policy]
+"UpgradedSystem"=dword:00000001
+
+;Dual boot with linux
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation]
+"RealTimeIsUniversal"=dword:00000001
+
+; 关闭 NumberPad 虚拟数字键盘
+;[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AsusNumpadPTP\Parameters\APSettingParameters]
+;"NUMPAD_00"=dword:00000000
+;"COMMONFEATURE_00"=dword:00000000
+
+;fix cjk
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink]
+"Segoe UI"=hex(7):54,00,41,00,48,00,4f,00,4d,00,41,00,2e,00,54,00,54,00,46,00,\
+  2c,00,54,00,61,00,68,00,6f,00,6d,00,61,00,00,00,4d,00,53,00,59,00,48,00,2e,\
+  00,54,00,54,00,43,00,2c,00,4d,00,69,00,63,00,72,00,6f,00,73,00,6f,00,66,00,\
+  74,00,20,00,59,00,61,00,48,00,65,00,69,00,20,00,55,00,49,00,2c,00,31,00,32,\
+  00,38,00,2c,00,39,00,36,00,00,00,4d,00,53,00,59,00,48,00,2e,00,54,00,54,00,\
+  43,00,2c,00,4d,00,69,00,63,00,72,00,6f,00,73,00,6f,00,66,00,74,00,20,00,59,\
+  00,61,00,48,00,65,00,69,00,20,00,55,00,49,00,00,00,4d,00,45,00,49,00,52,00,\
+  59,00,4f,00,2e,00,54,00,54,00,43,00,2c,00,4d,00,65,00,69,00,72,00,79,00,6f,\
+  00,20,00,55,00,49,00,2c,00,31,00,32,00,38,00,2c,00,39,00,36,00,00,00,4d,00,\
+  45,00,49,00,52,00,59,00,4f,00,2e,00,54,00,54,00,43,00,2c,00,4d,00,65,00,69,\
+  00,72,00,79,00,6f,00,20,00,55,00,49,00,00,00,4d,00,53,00,47,00,4f,00,54,00,\
+  48,00,49,00,43,00,2e,00,54,00,54,00,43,00,2c,00,4d,00,53,00,20,00,55,00,49,\
+  00,20,00,47,00,6f,00,74,00,68,00,69,00,63,00,00,00,4d,00,53,00,4a,00,48,00,\
+  2e,00,54,00,54,00,43,00,2c,00,4d,00,69,00,63,00,72,00,6f,00,73,00,6f,00,66,\
+  00,74,00,20,00,4a,00,68,00,65,00,6e,00,67,00,48,00,65,00,69,00,20,00,55,00,\
+  49,00,2c,00,31,00,32,00,38,00,2c,00,39,00,36,00,00,00,4d,00,53,00,4a,00,48,\
+  00,2e,00,54,00,54,00,43,00,2c,00,4d,00,69,00,63,00,72,00,6f,00,73,00,6f,00,\
+  66,00,74,00,20,00,4a,00,68,00,65,00,6e,00,67,00,48,00,65,00,69,00,20,00,55,\
+  00,49,00,00,00,4d,00,41,00,4c,00,47,00,55,00,4e,00,2e,00,54,00,54,00,46,00,\
+  2c,00,4d,00,61,00,6c,00,67,00,75,00,6e,00,20,00,47,00,6f,00,74,00,68,00,69,\
+  00,63,00,2c,00,31,00,32,00,38,00,2c,00,39,00,36,00,00,00,4d,00,41,00,4c,00,\
+  47,00,55,00,4e,00,2e,00,54,00,54,00,46,00,2c,00,4d,00,61,00,6c,00,67,00,75,\
+  00,6e,00,20,00,47,00,6f,00,74,00,68,00,69,00,63,00,00,00,4d,00,49,00,4e,00,\
+  47,00,4c,00,49,00,55,00,2e,00,54,00,54,00,43,00,2c,00,50,00,4d,00,69,00,6e,\
+  00,67,00,4c,00,69,00,55,00,00,00,53,00,49,00,4d,00,53,00,55,00,4e,00,2e,00,\
+  54,00,54,00,43,00,2c,00,53,00,69,00,6d,00,53,00,75,00,6e,00,00,00,47,00,55,\
+  00,4c,00,49,00,4d,00,2e,00,54,00,54,00,43,00,2c,00,47,00,75,00,6c,00,69,00,\
+  6d,00,00,00,59,00,55,00,47,00,4f,00,54,00,48,00,4d,00,2e,00,54,00,54,00,43,\
+  00,2c,00,59,00,75,00,20,00,47,00,6f,00,74,00,68,00,69,00,63,00,20,00,55,00,\
+  49,00,2c,00,31,00,32,00,38,00,2c,00,39,00,36,00,00,00,59,00,55,00,47,00,4f,\
+  00,54,00,48,00,4d,00,2e,00,54,00,54,00,43,00,2c,00,59,00,75,00,20,00,47,00,\
+  6f,00,74,00,68,00,69,00,63,00,20,00,55,00,49,00,00,00,53,00,45,00,47,00,55,\
+  00,49,00,53,00,59,00,4d,00,2e,00,54,00,54,00,46,00,2c,00,53,00,65,00,67,00,\
+  6f,00,65,00,20,00,55,00,49,00,20,00,53,00,79,00,6d,00,62,00,6f,00,6c,00,00,\
+  00,00,00
