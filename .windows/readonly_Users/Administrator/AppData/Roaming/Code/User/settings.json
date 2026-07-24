@@ -1,0 +1,17 @@
+{
+    "window.autoDetectColorScheme": true,
+    "editor.wordWrap": "on",
+    "python.terminal.activateEnvironment": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "editor.fontFamily": "'Maple Mono NL NF CN', 'Cascadia Code', monospace",
+    "terminal.integrated.fontFamily": "'Maple Mono NL NF CN', 'Cascadia Code'",
+    "chat.utilityModel": "deepseek/deepseek-v4-pro",
+    "chat.utilitySmallModel": "deepseek/deepseek-v4-pro",
+    "security.workspace.trust.untrustedFiles": "open",
+    "extensions.ignoreRecommendations": true,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "terminal.integrated.initialHint": false,
+    "workbench.startupEditor": "none",
+    "diffEditor.maxComputationTime": 0
+}
