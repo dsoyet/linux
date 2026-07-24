@@ -1,8 +1,0 @@
-Windows Registry Editor Version 5.00
-
-;115
-[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Uninstall\115Chrome]
-"DisplayIcon"="C:\\Users\\Share\\AppData\\Local\\115Chrome\\Application\\115chrome.exe"
-"Publisher"="Microsoft Corporation"
-"DisplayName"="Cloud Browser"
-"DisplayVersion"="40.0.0"
