@@ -1,0 +1,3 @@
+{{- if ne .hardware "vmware" }}
+etc/systemd/system/vmhgfs-fuse.service
+{{- end }}

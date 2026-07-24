@@ -1,0 +1,52 @@
+if [[ -z "${SSH_CONNECTION}" ]]; then
+    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+fi
+if [[ "${UID}" == 0 ]]; then
+    PS1='[\[\033[01;31m\]\h\[\033[00m\] \W]\$ '
+else
+    PS1='[\[\033[01;34m\]\h\[\033[00m\] \W]\$ '
+fi
+
+alias xdg='lsd --tree --depth 1 -A ~/.cache ~/.config ~/.local'
+alias ll='lsd -lA'
+alias ls='lsd -1A'
+alias vi='sudo nvim'
+alias vim='sudo nvim'
+alias htop='btm -b'
+alias tree='lsd --tree --depth 2 -A'
+alias ccd='cd ~/.android/chezmoi/bootstrap'
+
+export VISUAL="nvim"
+export PAGER="moor --wrap"
+export EDITOR="nvim"
+
+export PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+export SYSTEMD_PAGER="moor --wrap"
+export GIT_CONFIG_GLOBAL="$HOME/.android/gitconfig"
+alias cz="sudo -E chezmoi --config $HOME/.android/chezmoi/chezmoi.toml"
+
+
+# devtools
+export NPM_CONFIG_USERCONFIG=$XDG_DATA_HOME/js/npmrc
+export GNUPGHOME=$XDG_DATA_HOME/gnupg
+export GOPATH=$XDG_DATA_HOME/go
+export GOCACHE=$XDG_CACHE_HOME/go
+export RUSTUP_HOME=$XDG_DATA_HOME/rustup
+export CARGO_HOME=$XDG_DATA_HOME/cargo
+export CUDA_CACHE_PATH=$XDG_CACHE_HOME/nv
+
+# bash
+HISTCONTROL="erasedups:ignorespace"
+export HISTFILE=$XDG_STATE_HOME/bash/history
+
+if test "$HOME" != "/" ; then
+    for dir in "$CARGO_HOME/bin" "$GOPATH/bin" "$HOME/.android/code/bin" "$XDG_DATA_HOME/js/bin" "$HOME/.local/bin"; do
+        [ -z "$dir" ] && continue
+        [ -d "$dir" ] || continue
+        case ":$PATH:" in
+            *":$dir:"*) ;;
+            *) PATH="$dir:$PATH" ;;
+        esac
+    done
+fi
+

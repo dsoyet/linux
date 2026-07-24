@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# 获取所有显式安装的包列表
+explicit_packages=($(pacman -Qe | awk '{print $1}'))
+
+# 创建关联数组存储结果
+declare -A can_remove
+declare -A cannot_remove
+
+echo "正在分析依赖关系，请稍候..."
+
+for pkg in "${explicit_packages[@]}"; do
+    # 获取该包被哪些包依赖
+    required_by=$(pacman -Qi "$pkg" | grep "Required By" | sed 's/Required By\s*: //' | tr -d ' ')
+    
+    # 检查是否有显式安装的包依赖当前包
+    has_explicit_dependency=false
+    
+    if [[ -n "$required_by" && "$required_by" != "None" ]]; then
+        # 将依赖列表按空格分割
+        IFS=' ' read -ra deps <<< "$required_by"
+        for dep in "${deps[@]}"; do
+            # 检查这个依赖包是否在显式安装列表中
+            if [[ " ${explicit_packages[@]} " =~ " $dep " ]]; then
+                has_explicit_dependency=true
+                break
+            fi
+        done
+    fi
+    
+    if [[ "$has_explicit_dependency" == true ]]; then
+        # 被显式包依赖 → 不能单独卸载
+        cannot_remove["$pkg"]="$required_by"
+    else
+        # 没有被显式包依赖 → 可以单独卸载
+        can_remove["$pkg"]="$required_by"
+    fi
+done
+
+# 输出结果
+echo ""
+echo "=========================================="
+echo "可以单独卸载的包（没有被其他显式包依赖）"
+echo "=========================================="
+for pkg in "${!can_remove[@]}"; do
+    required_by="${can_remove[$pkg]}"
+    if [[ -z "$required_by" || "$required_by" == "None" ]]; then
+        echo "  $pkg"
+    else
+        echo "  $pkg -> 被以下依赖包依赖: $required_by"
+    fi
+done | sort
+
+echo ""
+echo "=========================================="
+echo "不能单独卸载的包（被其他显式包依赖）"
+echo "=========================================="
+for pkg in "${!cannot_remove[@]}"; do
+    required_by="${cannot_remove[$pkg]}"
+    echo "  $pkg -> 被以下显式包依赖: $required_by"
+done | sort
+
+echo ""
+echo "=========================================="
+echo "统计信息"
+echo "=========================================="
+echo "可以单独卸载的包数量: ${#can_remove[@]}"
+echo "不能单独卸载的包数量: ${#cannot_remove[@]}"
+echo "总显式安装包数量: ${#explicit_packages[@]}"
