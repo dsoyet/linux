@@ -1,1 +1,3 @@
-root=UUID=2270faf5-6f6f-4ee1-a938-d29baf3b8eb1 video=Virtual-1:1920x1200
+{{- if eq .hardware "vmware" -}}
+root=UUID={{.uuid}} video=Virtual-1:1920x1200
+{{- end }}
