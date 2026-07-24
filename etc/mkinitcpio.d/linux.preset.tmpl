@@ -1,6 +1,0 @@
-ALL_kver="$(ls /usr/lib/modules/*/vmlinuz)"
-PRESETS=('default')
-{{- if eq .hardware "vmware" }}
-default_uki="/boot/EFI/Boot/bootx64.efi"
-{{- end }}
-default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp"
