@@ -48,7 +48,7 @@ Windows Registry Editor Version 5.00
 
 ;Unzip
 [HKEY_CURRENT_USER\Software\Classes\*\shell\Unzip\command]
-@="E:\\Telegram\\Zip.exe x \"%1\""
+@="E:\\Telegram\\Zip.exe x -mcp=936 \"%1\""
 
 ;Notepad
 [HKEY_CURRENT_USER\Software\Classes\*\shell\Notepad\command]
