@@ -1,3 +1,6 @@
+{{- if eq .hardware "station" -}}
+root=UUID={{.uuid}}
+{{- end }}
 {{- if eq .hardware "vmware" -}}
 root=UUID={{.uuid}} video=Virtual-1:1920x1200
 {{- end }}
