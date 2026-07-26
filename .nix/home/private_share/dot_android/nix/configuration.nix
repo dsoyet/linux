@@ -63,6 +63,7 @@
     moor
     neovim
     dust
+    delta
     pciutils
     vulkan-tools
   ];

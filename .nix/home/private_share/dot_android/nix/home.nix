@@ -12,8 +12,6 @@
     vscode
   ];
 
-  xdg.configFile."niri/config.kdl".source = ./config.kdl;
-
   home.file.".config/mpv/mpv.conf".text = ''
     gpu-api=opengl
     vo=gpu-next
@@ -63,6 +61,7 @@
     };
   };
 
+  #sudo nixos-rebuild switch --flake path:$HOME/.android/nixos#vmware
   programs.bash = {
     enable = true;
     enableCompletion = true;
@@ -76,9 +75,8 @@
       export PATH="$HOME/.local/bin:$GOPATH/bin:$CARGO_HOME/bin:$PATH"
     '';
     shellAliases = {
-      exp = "sudo nixos-rebuild switch --flake path:$HOME/.android/nixos#vmware";
-      ex = "nh os switch -H vmware";
       cz = "chezmoi --config $HOME/.android/chezmoi/chezmoi.toml";
+      ex = "nh os switch -H vmware";
       grep = "grep --color=auto";
       ll = "lsd -lA";
       ls = "lsd -1A";
