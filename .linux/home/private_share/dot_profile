@@ -7,6 +7,8 @@ else
     PS1='[\[\033[01;34m\]\h\[\033[00m\] \W]\$ '
 fi
 
+#export ANV_DEBUG=video-decode,video-encode
+
 alias xdg='lsd --tree --depth 1 -A ~/.cache ~/.config ~/.local'
 alias ll='lsd -lA'
 alias ls='lsd -1A'
