@@ -1,0 +1,14 @@
+--- a/services/plugins/desktopEvents/desktopEvents.c
++++ b/services/plugins/desktopEvents/desktopEvents.c
+@@ -88,6 +88,11 @@
+ TOOLS_MODULE_EXPORT ToolsPluginData *
+ ToolsOnLoad(ToolsAppCtx *ctx)
+ {
++   if (g_getenv("WAYLAND_DISPLAY") != NULL &&
++       (g_getenv("DISPLAY") == NULL ||
++        g_strcmp0(g_getenv("XDG_SESSION_TYPE"), "wayland") == 0)) {
++      return NULL;
++   }
+    static ToolsPluginData regData = {
+       "desktopEvents",
+       NULL,
