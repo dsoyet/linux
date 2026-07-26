@@ -22,7 +22,7 @@ export EDITOR="nvim"
 
 export PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 export SYSTEMD_PAGER="moor --wrap"
-export GIT_CONFIG_GLOBAL="$HOME/.android/gitconfig"
+export GIT_CONFIG_GLOBAL="$HOME/.android/share/gitconfig"
 alias cz="sudo -E chezmoi --config $HOME/.android/chezmoi/chezmoi.toml"
 
 
