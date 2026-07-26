@@ -4,6 +4,7 @@
   imports = [ ];
 
   system.stateVersion = "26.05";
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.networkmanager.enable = false;
 
