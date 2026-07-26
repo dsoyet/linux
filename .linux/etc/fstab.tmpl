@@ -1,15 +1,15 @@
 {{- if eq .hardware "station" -}}
-UUID=8b22280d-27d2-4fe0-a83c-9a61f678d337  / btrfs defaults,compress=zstd,noatime 0 0
-UUID=4ECF-7663 /boot vfat defaults 0 1
-UUID=96F6A9BCF6A99CCD /ntx ntfs3 defaults,uid=1000,gid=1000,umask=022 0 1
-#UUID=a48ff873-ce86-48eb-9195-fc73a4aebbe1 /var/lib/libvirt/images btrfs defaults,subvol=image,noatime 0 1
-{{- end }}
-{{- if eq .hardware "laptop" -}}
 UUID=52f377ac-f155-4719-8e7e-aee5f8c8bbd8  / btrfs defaults,compress=zstd,noatime 0 0
 UUID=BE17-18E0 /boot vfat defaults 0 1
 UUID=52EAE258EAE2383D /ntx ntfs3 defaults,uid=1000,gid=1000,umask=022 0 1
 #UUID=f7a23eb7-1b7c-4cb9-bf60-6f2718cd36d5 /var/lib/libvirt/images btrfs defaults,subvol=image,noatime 0 1
 UUID=B040869040865CCA /osx ntfs3 defaults,uid=1000,gid=1000,umask=022 0 1
+{{- end }}
+{{- if eq .hardware "laptop" -}}
+UUID=8b22280d-27d2-4fe0-a83c-9a61f678d337  / btrfs defaults,compress=zstd,noatime 0 0
+UUID=4ECF-7663 /boot vfat defaults 0 1
+UUID=96F6A9BCF6A99CCD /ntx ntfs3 defaults,uid=1000,gid=1000,umask=022 0 1
+#UUID=a48ff873-ce86-48eb-9195-fc73a4aebbe1 /var/lib/libvirt/images btrfs defaults,subvol=image,noatime 0 1
 {{- end }}
 {{- if eq .hardware "qemu" -}}
 UUID=5ecd0b65-052e-4153-8c4d-d88672220ac8 / btrfs defaults,compress=zstd,noatime 0 0
