@@ -1,0 +1,55 @@
+[Unit]
+Description=NT S2025
+Documentation=https://www.qemu.org/docs/master/
+After=network.target
+
+[Service]
+Type=simple
+#Environment="DISPLAY=:0"
+#Environment="XDG_RUNTIME_DIR=/run/user/1000"
+#Environment="WAYLAND_DISPLAY=wayland-1"
+EnvironmentFile=%h/.config/systemd/user/environment
+
+# ========== 使用 bash -c 同时启动 virtiofsd 和 QEMU ==========
+ExecStart=/usr/bin/bash -c '\
+    /usr/bin/unshare -r --map-auto -- \
+        /usr/lib/virtiofsd \
+        --socket-path=%t/virtiofsd-nt.sock \
+        --shared-dir /ntx \
+        --sandbox chroot \
+        & \
+    sleep 2 ; \
+    /usr/bin/qemu-system-x86_64 \
+        -name "nt" \
+        -enable-kvm \
+        -cpu host,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time,hv_vpindex,hv_synic,hv_stimer,hv_reset,hv_frequencies \
+        -smp cores=8,threads=2,sockets=1 \
+        -m 16G \
+        -object memory-backend-memfd,share=on,id=mem,size=16G \
+        -numa node,memdev=mem \
+        -machine q35,accel=kvm \
+        -drive file=%h/.android/storage/nt.img,if=none,id=drive0,cache=unsafe,aio=io_uring,discard=unmap,detect-zeroes=unmap \
+        -device virtio-blk-pci,drive=drive0,iothread=iothread1 \
+        -object iothread,id=iothread1 \
+        -chardev socket,id=char0,path=%t/virtiofsd-nt.sock \
+	-device vhost-user-fs-pci,queue-size=1024,chardev=char0,tag=remote \
+        -boot order=d \
+        -nic user,hostfwd=tcp::20022-:22,model=virtio-net-pci \
+	-device virtio-vga-gl,hostmem=8G,blob=true,venus=true \
+        -usb -device usb-tablet \
+        -rtc base=localtime \
+        -display sdl,gl=on \
+        -drive if=pflash,format=raw,file=%h/.android/storage/OVMF.4m.fd'
+
+# ========== 清理 ==========
+#-vga qxl \
+#ExecStop=/usr/bin/pkill -f "qemu-system-x86_64.*nt"
+#ExecStopPost=/usr/bin/pkill -f "virtiofsd.*nt"
+#ExecStopPost=/bin/rm -f %t/virtiofsd-nt.sock
+
+Restart=no
+TimeoutStopSec=60
+KillMode=mixed
+
+[Install]
+WantedBy=default.target

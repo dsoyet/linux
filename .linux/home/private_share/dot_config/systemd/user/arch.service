@@ -1,0 +1,52 @@
+[Unit]
+Description=archlinux
+Documentation=https://www.qemu.org/docs/master/
+After=network.target
+
+[Service]
+Type=simple
+
+EnvironmentFile=%h/.config/systemd/user/environment
+
+ExecStart=/usr/bin/bash -c '\
+    /usr/bin/unshare -r --map-auto -- \
+        /usr/lib/virtiofsd \
+        --socket-path=%t/virtiofsd-arch.sock \
+        --shared-dir=/ntx \
+        --sandbox=chroot \
+        & \
+    sleep 2 ; \
+    /usr/bin/qemu-system-x86_64 \
+        -name "arch" \
+        -enable-kvm \
+        -cpu host \
+        -smp cores=8,threads=2,sockets=1 \
+        -m 16G \
+        -object memory-backend-memfd,share=on,id=mem,size=16G \
+        -numa node,memdev=mem \
+        -machine q35,accel=kvm \
+        -drive file=%h/.android/storage/arch.img,if=none,id=drive0,cache=unsafe,aio=io_uring,discard=unmap,detect-zeroes=unmap \
+        -device virtio-blk-pci,drive=drive0,iothread=iothread1 \
+        -object iothread,id=iothread1 \
+        -chardev socket,id=char0,path=%t/virtiofsd-arch.sock \
+        -device vhost-user-fs-pci,queue-size=1024,chardev=char0,tag=remote \
+        -boot order=d \
+        -nic user,hostfwd=tcp::10022-:22,model=virtio-net-pci \
+	-device virtio-vga-gl,hostmem=8G,blob=true,venus=true \
+	-audiodev pipewire,id=audio0,out.frequency=48000 \
+        -device virtio-sound-pci,audiodev=audio0 \
+        -usb -device usb-tablet \
+        -rtc base=localtime \
+        -display sdl,gl=on \
+        -drive if=pflash,format=raw,file=%h/.android/storage/OVMF.4m.fd'
+
+#ExecStop=/usr/bin/pkill -f "qemu-system-x86_64.*arch"
+#ExecStopPost=/usr/bin/pkill -f "virtiofsd.*arch"
+#ExecStopPost=/bin/rm -f %t/virtiofsd-arch.sock
+
+Restart=no
+TimeoutStopSec=60
+KillMode=mixed
+
+[Install]
+WantedBy=default.target
