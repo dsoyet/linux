@@ -21,6 +21,14 @@ output "eDP-1" {
     variable-refresh-rate
 }
 {{- end }}
+{{- if eq .hardware "laptop" }}
+output "eDP-1" {
+    scale 1.5
+    transform "normal"
+    position x=1280 y=0
+    variable-refresh-rate
+}
+{{- end }}
 {{- if eq .hardware "qemu" }}
 output "Virtual-1" {
     mode "1920x1200"
