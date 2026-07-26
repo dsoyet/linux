@@ -1,12 +1,12 @@
-{{- if eq .hardware "vmware" -}}
-UUID=2270faf5-6f6f-4ee1-a938-d29baf3b8eb1 / btrfs defaults,compress=zstd,noatime 0 0
-UUID=1208-C04D /boot vfat defaults 0 1
-UUID=d1a04903-c741-40be-8e75-1bce50b51a50 none swap defaults 0 0
-{{- end }}
-{{- if eq .hardware "g634j" -}}
+{{- if eq .hardware "station" -}}
 UUID=52f377ac-f155-4719-8e7e-aee5f8c8bbd8  / btrfs defaults,compress=zstd,noatime 0 0
 UUID=BE17-18E0 /boot vfat defaults 0 1
 UUID=52EAE258EAE2383D /ntx ntfs3 defaults,uid=1000,gid=1000,umask=022 0 1
 #UUID=f7a23eb7-1b7c-4cb9-bf60-6f2718cd36d5 /var/lib/libvirt/images btrfs defaults,subvol=image,noatime 0 1
 UUID=B040869040865CCA /osx ntfs3 defaults,uid=1000,gid=1000,umask=022 0 1
+{{- end }}
+{{- if eq .hardware "vmware" -}}
+UUID=2270faf5-6f6f-4ee1-a938-d29baf3b8eb1 / btrfs defaults,compress=zstd,noatime 0 0
+UUID=1208-C04D /boot vfat defaults 0 1
+UUID=d1a04903-c741-40be-8e75-1bce50b51a50 none swap defaults 0 0
 {{- end }}
