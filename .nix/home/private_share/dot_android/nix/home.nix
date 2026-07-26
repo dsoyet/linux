@@ -76,7 +76,7 @@
     '';
     shellAliases = {
       cz = "chezmoi --config $HOME/.android/chezmoi/chezmoi.toml";
-      ex = "nh os switch -H vmware";
+      ex = "nh os switch -H ";
       grep = "grep --color=auto";
       ll = "lsd -lA";
       ls = "lsd -1A";
