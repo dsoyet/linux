@@ -3,6 +3,9 @@ PRESETS=('default')
 {{- if eq .hardware "station" }}
 default_uki="/boot/EFI/Boot/arch.efi"
 {{- end }}
+{{- if eq .hardware "qemu" }}
+default_uki="/boot/EFI/Boot/bootx64.efi"
+{{- end }}
 {{- if eq .hardware "vmware" }}
 default_uki="/boot/EFI/Boot/bootx64.efi"
 {{- end }}
