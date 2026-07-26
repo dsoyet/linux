@@ -5,6 +5,12 @@ UUID=52EAE258EAE2383D /ntx ntfs3 defaults,uid=1000,gid=1000,umask=022 0 1
 #UUID=f7a23eb7-1b7c-4cb9-bf60-6f2718cd36d5 /var/lib/libvirt/images btrfs defaults,subvol=image,noatime 0 1
 UUID=B040869040865CCA /osx ntfs3 defaults,uid=1000,gid=1000,umask=022 0 1
 {{- end }}
+{{- if eq .hardware "qemu" -}}
+UUID=5ecd0b65-052e-4153-8c4d-d88672220ac8 / btrfs defaults,compress=zstd,noatime 0 0
+UUID=5B5D-CC3C /boot vfat defaults 0 1
+remote /ntx virtiofs defaults,nofail 0 0
+UUID=b34df064-c4a6-4cb3-9a73-dbfd055e38c5 none swap defaults 0 0
+{{- end }}
 {{- if eq .hardware "vmware" -}}
 UUID=2270faf5-6f6f-4ee1-a938-d29baf3b8eb1 / btrfs defaults,compress=zstd,noatime 0 0
 UUID=1208-C04D /boot vfat defaults 0 1
