@@ -1,4 +1,10 @@
 {{- if eq .hardware "station" -}}
+UUID=8b22280d-27d2-4fe0-a83c-9a61f678d337  / btrfs defaults,compress=zstd,noatime 0 0
+UUID=4ECF-7663 /boot vfat defaults 0 1
+UUID=96F6A9BCF6A99CCD /ntx ntfs3 defaults,uid=1000,gid=1000,umask=022 0 1
+#UUID=a48ff873-ce86-48eb-9195-fc73a4aebbe1 /var/lib/libvirt/images btrfs defaults,subvol=image,noatime 0 1
+{{- end }}
+{{- if eq .hardware "laptop" -}}
 UUID=52f377ac-f155-4719-8e7e-aee5f8c8bbd8  / btrfs defaults,compress=zstd,noatime 0 0
 UUID=BE17-18E0 /boot vfat defaults 0 1
 UUID=52EAE258EAE2383D /ntx ntfs3 defaults,uid=1000,gid=1000,umask=022 0 1
