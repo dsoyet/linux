@@ -5,6 +5,8 @@
     ../../base.nix
     ./hardware-configuration.nix
     ./image.nix
+    ./caddy.nix
+    ./wireguard.nix
   ];
 
   # --- UEFI 启动 (阿里云使用 UEFI) ---
