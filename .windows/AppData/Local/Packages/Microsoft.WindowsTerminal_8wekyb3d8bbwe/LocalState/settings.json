@@ -25,7 +25,7 @@
         {
             "id": "Terminal.ToggleFocusMode",
             "keys": "ctrl+alt+f"
-        }，
+        },
         {
             "id": "Terminal.DuplicatePaneAuto",
             "keys": "alt+shift+d"
