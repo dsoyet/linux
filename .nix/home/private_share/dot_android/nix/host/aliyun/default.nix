@@ -33,5 +33,7 @@
   };
 
   # --- 终端管理器 ---
-  programs.byobu.enable = true;
+  environment.systemPackages = with pkgs; [
+    byobu
+  ];
 }
