@@ -37,7 +37,7 @@
 
       # byobu 自动启动 (仅 SSH 会话)
       if [ -n "$SSH_CONNECTION" ] && [ -z "$BYOBU_BACKEND" ]; then
-        _byobu_sourced=1 . /run/current-system/sw/bin/byobu-launch 2>/dev/null || true
+        byobu new-session -A -s main 2>/dev/null || true
       fi
     '';
     shellAliases = {
