@@ -10,7 +10,7 @@
       extraConfig = ''
         tls {
           issuer acme {
-            ca https://acme-v02.api.letsencrypt.org/directory
+            directory https://acme-v02.api.letsencrypt.org/directory
           }
         }
         root * /home/share/.android/storage
