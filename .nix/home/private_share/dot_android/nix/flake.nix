@@ -14,7 +14,7 @@
       vmware = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-          ./configuration.nix
+          ./profile/desktop/default.nix
           ./host/vmware/default.nix
           home-manager.nixosModules.default
           ({ pkgs, ... }: {
@@ -27,7 +27,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.share = import ./home.nix;
+            home-manager.users.share = import ./profile/desktop/home.nix;
             home-manager.backupFileExtension = "backup";
           }
         ];
@@ -36,13 +36,13 @@
       qemu = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-          ./configuration.nix
+          ./profile/desktop/default.nix
           ./host/qemu/default.nix
           home-manager.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.share = import ./home.nix;
+            home-manager.users.share = import ./profile/desktop/home.nix;
             home-manager.backupFileExtension = "backup";
           }
         ];
@@ -51,13 +51,12 @@
       aliyun = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-          ./configuration.nix
-          ./host/aliyun/default.nix
+          ./host/aliyun/default.nix   # 内含 base.nix + hardware + image
           home-manager.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.share = import ./home.nix;
+            home-manager.users.share = import ./profile/server/home.nix;
             home-manager.backupFileExtension = "backup";
           }
         ];

@@ -3,23 +3,14 @@
 {
   imports = [ ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "ehci_pci" "ahci" "xhci_pci" "nvme" "sr_mod" "virtio_pci" "virtio_blk" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
-  boot.extraModulePackages = [ ];
+  # virtio 驱动（阿里云 ECS 使用 KVM/virtio）
+  boot.initrd.availableKernelModules = [
+    "virtio_pci" "virtio_blk" "virtio_net" "nvme" "ahci" "xhci_pci"
+  ];
+  boot.kernelModules = [ "virtio_net" ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/REPLACE-ME";
-      fsType = "ext4";
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/REPLACE-ME";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
-
-  swapDevices = [ ];
+  # 文件系统由 image 变体 (qemu-efi) 自动管理
+  # 分区以 label 挂载: / → nixos, /boot → ESP
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
