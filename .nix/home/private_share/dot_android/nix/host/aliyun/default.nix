@@ -37,7 +37,6 @@
 
   # --- 终端管理器 ---
   environment.systemPackages = with pkgs; [
-    byobu
-    tmux        # byobu 运行时依赖, nixpkgs 未 propagate
+    zellij
   ];
 }
