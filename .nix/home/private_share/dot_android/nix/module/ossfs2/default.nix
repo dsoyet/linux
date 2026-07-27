@@ -1,7 +1,7 @@
 { pkgs }:
 
 let
-  inherit (pkgs) lib stdenv fetchurl autoPatchelfHook fuse3 makeWrapper;
+  inherit (pkgs) lib stdenv fetchurl autoPatchelfHook fuse3 libarchive makeWrapper;
 in
 stdenv.mkDerivation rec {
   pname = "ossfs2";
@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
     hash = "sha256-7Yl5Rm3DqV1cmhCJProbA2gDSrGdBQ+kewiw49xBcRI=";
   };
 
-  nativeBuildInputs = [ autoPatchelfHook makeWrapper ];
+  nativeBuildInputs = [ autoPatchelfHook libarchive makeWrapper ];
   buildInputs = [ fuse3 ];
 
   unpackPhase = ''
