@@ -13,7 +13,7 @@
 
     virtualHosts."dsoleaf.top" = {
       extraConfig = ''
-        root * /home/share/.android/storage
+        root * /var/www/dsoleaf
         file_server
         encode gzip
       '';
