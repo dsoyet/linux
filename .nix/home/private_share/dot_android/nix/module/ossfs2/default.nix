@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://gosspublic.alicdn.com/ossfs/ossfs2_${version}_linux_x86_64.rpm";
-    hash = "";
+    hash = "sha256-7Yl5Rm3DqV1cmhCJProbA2gDSrGdBQ+kewiw49xBcRI=";
   };
 
   nativeBuildInputs = [ autoPatchelfHook makeWrapper ];
