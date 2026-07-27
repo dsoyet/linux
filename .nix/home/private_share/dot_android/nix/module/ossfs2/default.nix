@@ -1,7 +1,7 @@
 { pkgs }:
 
 let
-  inherit (pkgs) lib stdenv fetchurl autoPatchelfHook fuse3 libarchive makeWrapper;
+  inherit (pkgs) lib stdenv fetchurl libarchive makeWrapper;
 in
 stdenv.mkDerivation rec {
   pname = "ossfs2";
@@ -12,17 +12,21 @@ stdenv.mkDerivation rec {
     hash = "sha256-7Yl5Rm3DqV1cmhCJProbA2gDSrGdBQ+kewiw49xBcRI=";
   };
 
-  nativeBuildInputs = [ autoPatchelfHook libarchive makeWrapper ];
-  buildInputs = [ fuse3 ];
+  nativeBuildInputs = [ libarchive makeWrapper ];
 
   unpackPhase = ''
     bsdtar -xf $src
   '';
 
   installPhase = ''
-    mkdir -p $out/bin
+    mkdir -p $out/bin $out/lib/ossfs2
     cp usr/local/bin/ossfs2 $out/bin/
     ln -s ossfs2 $out/bin/mount.ossfs2
+    cp usr/local/lib64/ossfs2/libfuse3.so.3 $out/lib/ossfs2/
+
+    patchelf --set-interpreter ${stdenv.cc.bintools.dynamicLinker} \
+             --set-rpath $out/lib/ossfs2 \
+             $out/bin/ossfs2
   '';
 
   meta = with lib; {
