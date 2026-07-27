@@ -15,6 +15,7 @@
   # --- 网络 ---
   networking.hostName = "aliyun";
   networking.useDHCP = lib.mkDefault true;
+  networking.firewall.enable = false;  # 用阿里云安全组, 关闭系统防火墙
 
   # --- cloud-init: 磁盘扩容 + 阿里云助手 ---
   services.cloud-init = {

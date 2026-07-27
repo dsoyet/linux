@@ -34,6 +34,11 @@
       export GOPATH=$HOME/.local/share/go
       export CARGO_HOME=$HOME/.local/share/cargo
       export PATH="$HOME/.local/bin:$GOPATH/bin:$CARGO_HOME/bin:$PATH"
+
+      # byobu 自动启动 (仅 SSH 会话)
+      if [ -n "$SSH_CONNECTION" ] && [ -z "$BYOBU_BACKEND" ]; then
+        _byobu_sourced=1 . /run/current-system/sw/bin/byobu-launch 2>/dev/null || true
+      fi
     '';
     shellAliases = {
       cz = "chezmoi --config $HOME/.android/chezmoi/chezmoi.toml";
