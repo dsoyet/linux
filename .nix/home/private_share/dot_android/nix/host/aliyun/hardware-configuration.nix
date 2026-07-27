@@ -9,8 +9,13 @@
   ];
   boot.kernelModules = [ "virtio_net" ];
 
-  # 文件系统由 image 变体 (qemu-efi) 自动管理
-  # 分区以 label 挂载: / → nixos, /boot → ESP
+  # 文件系统: mkDefault 让 image 变体构建时可覆盖
+  # 镜像构建后根分区 label 为 "nixos"
+  # /boot (ESP) 由 systemd 自动发现, 无需声明
+  fileSystems."/" = lib.mkDefault {
+    device = "/dev/disk/by-label/nixos";
+    fsType = "ext4";
+  };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
