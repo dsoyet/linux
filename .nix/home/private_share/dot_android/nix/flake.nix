@@ -52,6 +52,13 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./host/aliyun/default.nix   # 内含 base.nix + hardware + image
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = [
+              (final: prev: {
+                ossfs2 = import ./module/ossfs2 { pkgs = prev; };
+              })
+            ];
+          })
           home-manager.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;

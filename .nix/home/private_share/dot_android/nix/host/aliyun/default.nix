@@ -37,8 +37,9 @@
     PasswordAuthentication = false;
   };
 
-  # --- 终端管理器 ---
+  # --- 终端管理器 + OSS 挂载 ---
   environment.systemPackages = with pkgs; [
+    ossfs2
     zellij
   ];
 }
