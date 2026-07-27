@@ -1,18 +1,18 @@
 { config, lib, pkgs, ... }:
 
 {
-  # --- Caddy Web Server + 自动 HTTPS ---
+  # --- Caddy Web Server + 自动 HTTPS (Let's Encrypt) ---
   services.caddy = {
     enable = true;
-    email = "dsoyet@foxmail.com";   # Let's Encrypt 通知
+    email = "dsoyet@foxmail.com";
+
+    # 全局指定 Let's Encrypt (Caddy 默认走 ZeroSSL)
+    globalConfig = ''
+      acme_ca https://acme-v02.api.letsencrypt.org/directory
+    '';
 
     virtualHosts."dsoleaf.top" = {
       extraConfig = ''
-        tls {
-          issuer acme {
-            dir https://acme-v02.api.letsencrypt.org/directory
-          }
-        }
         root * /home/share/.android/storage
         file_server
         encode gzip
