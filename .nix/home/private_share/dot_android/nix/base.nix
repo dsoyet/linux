@@ -97,7 +97,15 @@
 
   nix = {
     settings = {
-      extra-substituters = [ "https://mirrors.cernet.edu.cn/nix-channels/store" ];
+      # 优先使用国内镜像, cache.nixos.org 兜底
+      substituters = [
+        "https://mirror.sjtu.edu.cn/nix-channels/store"
+        "https://mirrors.cernet.edu.cn/nix-channels/store"
+        "https://cache.nixos.org"
+      ];
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      ];
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
     };
