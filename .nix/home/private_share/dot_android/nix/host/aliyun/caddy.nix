@@ -8,6 +8,11 @@
 
     virtualHosts."dsoleaf.top" = {
       extraConfig = ''
+        tls {
+          issuer acme {
+            ca https://acme-v02.api.letsencrypt.org/directory
+          }
+        }
         root * /home/share/.android/storage
         file_server
         encode gzip
