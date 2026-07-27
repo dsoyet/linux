@@ -45,8 +45,6 @@
   # --- 桌面包 ---
   environment.systemPackages = with pkgs; [
     alacritty
-    cpx
-    moor
     pciutils
     vulkan-tools
   ];

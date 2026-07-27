@@ -6,7 +6,6 @@
   home.packages = with pkgs; [
     git
     go
-    rclone
     rustup
   ];
 
@@ -46,8 +45,11 @@
       grep = "grep --color=auto";
       ll = "lsd -lA";
       ls = "lsd -1A";
+      less = "moor";
       tree = "lsd --tree --depth 2 -A";
       htop = "btm -b";
+      lsblk = "lsblk -n -o NAME,SIZE,FSTYPE,MOUNTPOINT";
+      xdg="lsd --tree --depth 1 -A ~/.cache ~/.config ~/.local";
     };
   };
 

@@ -54,9 +54,11 @@
     gcc
     bottom
     lsd
+    cpx
     psmisc
     neovim
     dust
+    moor
     delta
     aliyun-cli
   ];
