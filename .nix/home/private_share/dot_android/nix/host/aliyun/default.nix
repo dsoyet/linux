@@ -13,7 +13,7 @@
   boot.loader.systemd-boot.enable = true;
 
   # --- 网络 ---
-  networking.hostName = "nixos-aliyun";
+  networking.hostName = "aliyun";
   networking.useDHCP = lib.mkDefault true;
 
   # --- cloud-init: 磁盘扩容 + 阿里云助手 ---
