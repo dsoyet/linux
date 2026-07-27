@@ -20,8 +20,10 @@
   # --- cloud-init: 磁盘扩容 + 阿里云助手 ---
   services.cloud-init = {
     enable = true;
-    # 只处理底层, 不碰用户管理 (由 base.nix 声明式管理)
     config = ''
+      # 不碰 hostname, 由 NixOS 声明式管理
+      preserve_hostname: true
+      # 不碰用户管理
       users:
         - default
       ssh_pwauth: false
