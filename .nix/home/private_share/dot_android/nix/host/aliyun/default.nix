@@ -31,4 +31,7 @@
     PermitRootLogin = "prohibit-password";
     PasswordAuthentication = false;
   };
+
+  # --- 终端管理器 ---
+  programs.byobu.enable = true;
 }
