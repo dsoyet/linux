@@ -1,5 +1,8 @@
-{ lib, stdenv, fetchurl, autoPatchelfHook, fuse3, makeWrapper }:
+{ pkgs }:
 
+let
+  inherit (pkgs) lib stdenv fetchurl autoPatchelfHook fuse3 makeWrapper;
+in
 stdenv.mkDerivation rec {
   pname = "ossfs2";
   version = "2.0.8";
