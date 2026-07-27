@@ -31,7 +31,7 @@ Address = $IP/24
 [Peer]
 PublicKey = $SERVER_PUB
 Endpoint = $SERVER_ENDPOINT:51820
-AllowedIPs = 0.0.0.0/0
+AllowedIPs = 192.168.64.0/24
 PersistentKeepalive = 25
 CLIENTCONF
   '';
