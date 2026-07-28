@@ -11,7 +11,7 @@ $env:Path += ';E:\Mpv;E:\Telegram;E:\Vim\bin;E:\HD\Rust\cargo\bin;E:\HD\Js;E:\HD
 {{- end }}
 
 {{- if eq .chezmoi.windowsVersion.productName "Windows Server 2022 Datacenter" }}
-$env:Path = 'C:\Users\Administrator\Downloads\chezmoi;' + $env:Path
+$env:Path = 'C:\Users\Administrator\Downloads\Vim\home\.local\bin;' + $env:Path
 {{- end }}
 
 function Prompt {
@@ -73,6 +73,6 @@ function vim {
 
 {{- if eq .chezmoi.windowsVersion.productName "Windows Server 2022 Datacenter" }}
 function cz { 
-    C:\Users\Administrator\Downloads\Chezmoi\chezmoi.exe --config "C:\Users\Administrator\Downloads\Chezmoi\chezmoi.toml" $args 
+    chezmoi --config "C:\Users\Administrator\Downloads\Chezmoi\chezmoi.toml" $args 
 }
 {{- end }}
