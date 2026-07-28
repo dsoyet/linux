@@ -20,6 +20,11 @@ Windows Registry Editor Version 5.00
 "{1F2E5C41-9057-483F-807E-1D21C4AD21BA}"="WPS Doc Property"
 "{593F1699-1B70-4443-A2EE-39483EBA4346}"="WPS Shell Ext"
 
+{{- if eq .chezmoi.windowsVersion.productName "Windows Server 2025 Datacenter" }}
+[-HKEY_CLASSES_ROOT\Directory\Background\shell\AnyCode]
+[-HKEY_CLASSES_ROOT\Directory\shell\AnyCode]
+{{- end }}
+
 {{- if eq .chezmoi.windowsVersion.productName "Windows Server 2022 Datacenter" }}
 ;Notepad
 [HKEY_CURRENT_USER\Software\Classes\*\shell\Edit\command]
