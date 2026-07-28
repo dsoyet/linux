@@ -76,7 +76,7 @@
         vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 
         -- 基础设置
-        vim.opt.number = true
+        -- vim.opt.number = true
         vim.opt.mouse = ""
         vim.opt.shada = "'100,<50,s10,h"
 
