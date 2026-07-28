@@ -19,6 +19,8 @@ Windows Registry Editor Version 5.00
 "{AF1D7D2F-6AE8-4BAA-ABFA-738201F4871C}"="WPS Open With"
 "{1F2E5C41-9057-483F-807E-1D21C4AD21BA}"="WPS Doc Property"
 "{593F1699-1B70-4443-A2EE-39483EBA4346}"="WPS Shell Ext"
+
+{{- if eq .chezmoi.windowsVersion.productName "Windows Server 2022 Datacenter" }}
 ;Notepad
 [HKEY_CURRENT_USER\Software\Classes\*\shell\Edit\command]
 @="C:\\Windows\\system32\\notepad.exe \"%1\""
@@ -30,4 +32,4 @@ Windows Registry Editor Version 5.00
 ;Objects
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}]
 [-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}]
-
+{{- end }}
