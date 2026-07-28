@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- 可选：显示行号
-vim.opt.number = true
+-- vim.opt.number = true
 
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 
