@@ -36,6 +36,11 @@ function ll {
     lsd -1A $args
 }
 
+function xdg { 
+    lsd --tree --depth 1 -A ~/AppData/Local ~/AppData/LocalLow ~/AppData/Roaming 
+}
+
+{{- if eq .chezmoi.windowsVersion.productName "Windows Server 2022 Datacenter" }}
 function cz { 
     E:\Mpv\tools\chezmoi.exe --config "E:\Job\chezmoi\chezmoi.toml" $args 
 }
@@ -54,7 +59,5 @@ function vim {
     if (-not (Test-Path $exe)) { Write-Error "找不到 nvim.exe"; return }
     & $exe $args
 }
+{{- end }}
 
-function xdg { 
-    lsd --tree --depth 1 -A ~/AppData/Local ~/AppData/LocalLow ~/AppData/Roaming 
-}
