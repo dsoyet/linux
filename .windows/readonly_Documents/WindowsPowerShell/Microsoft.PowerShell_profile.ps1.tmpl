@@ -43,11 +43,11 @@ function env {
 function ls { 
     lsd -1A $args
 }
+Set-Alias -Name l -Value ls
 
 function ll { 
     lsd -lA $args
 }
-Set-Alias -Name l -Value ll
 
 function tree {
     lsd --tree --depth 2 -A $args
