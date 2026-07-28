@@ -107,6 +107,9 @@
   programs.direnv.enable = true;
   security.sudo.wheelNeedsPassword = false;
 
+  # --- GPG Agent ---
+  programs.gnupg.agent.enable = true;
+
   # --- Shell ---
   programs.bash.promptInit = ''
     PROMPT_COLOR="1;31m"; ((UID)) && PROMPT_COLOR="1;32m"; export PS1="\[\033[$PROMPT_COLOR\][\h:\w]\\$\[\033[0m\] "

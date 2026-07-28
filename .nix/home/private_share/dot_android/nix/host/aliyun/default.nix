@@ -42,4 +42,7 @@
     ossfs2
     zellij
   ];
+
+  # --- GPG 终端密码输入 ---
+  programs.gnupg.agent.pinentryPackage = pkgs.pinentry-curses;
 }

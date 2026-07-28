@@ -48,4 +48,7 @@
     pciutils
     vulkan-tools
   ];
+
+  # --- GPG 图形密码弹窗 ---
+  programs.gnupg.agent.pinentryPackage = pkgs.pinentry-gnome3;
 }
