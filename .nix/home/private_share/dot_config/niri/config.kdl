@@ -14,14 +14,12 @@ input {
     }
 
 }
-
 output "Virtual-1" {
     mode "2560x1600"
     scale 1.5
     transform "normal"
     position x=1280 y=0
 }
-
 layout {
     gaps 16
     center-focused-column "never"
