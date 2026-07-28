@@ -42,6 +42,10 @@ function ll {
     lsd -1A $args
 }
 
+function tree {
+    lsd --tree --depth 2 -A $args
+}
+
 function xdg { 
     lsd --tree --depth 1 -A ~/AppData/Local ~/AppData/LocalLow ~/AppData/Roaming 
 }
