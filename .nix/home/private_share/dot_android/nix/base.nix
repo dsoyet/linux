@@ -69,7 +69,6 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
-    configure = {
     extraLuaConfig = ''
       -- 透明背景
       vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
@@ -91,7 +90,6 @@
         end
       })
     '';
-    };
   };
 
   # --- Nix 工具 ---
