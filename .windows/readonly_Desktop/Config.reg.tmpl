@@ -1,0 +1,37 @@
+Windows Registry Editor Version 5.00
+
+;Context Menu
+;C:\Users\Share\AppData\Roaming\Microsoft\Windows\SendTo
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked]
+"{09A47860-11B0-4DA5-AFA5-26D86198A780}"="Scan with Microsoft Defender"
+"{596AB062-B4D2-4215-9F74-E9109B0A8153}"="Restore previous versions"
+"{9F156763-7844-4DC4-B2B1-901F640F5155}"="Open in Terminal"
+"{5D652B62-B702-496A-92BC-92C308251FEA}"="Nutstore"
+"{EEE949EB-C9ED-4967-98B0-ED4E543BEFA5}"="115 Cloud"
+"{1d27f844-3a1f-4410-85ac-14651078412d}"="Troubleshoot compatibility"
+"{e2bf9676-5f8f-435c-97eb-11607a5bedf7}"="Share"
+"{3D1975AF-48C6-4f8e-A182-BE0E08FA86A9}"="NVIDIA Control Panel"
+"{470C0EBD-5D73-4d58-9CED-E91E22E23282}"="Pin to Start"
+"{7AD84985-87B4-4a16-BE58-8B72A5B390F7}"="Cast to Device"
+"{67F4D210-BFC2-4ADD-9A2A-C9B9E1F42C4F}"="WPS Office"
+"{AA147FFB-0B1F-4BB1-9B1E-8D062B35C146}"="WPS Cloud Upload"
+"{28A80003-18FD-411D-B0A3-3C81F618E22B}"="WPS Cloud Menu"
+"{AF1D7D2F-6AE8-4BAA-ABFA-738201F4871C}"="WPS Open With"
+"{1F2E5C41-9057-483F-807E-1D21C4AD21BA}"="WPS Doc Property"
+"{593F1699-1B70-4443-A2EE-39483EBA4346}"="WPS Shell Ext"
+
+
+{{- if eq .chezmoi.windowsVersion.productName "Windows Server 2022 Datacenter" }}
+;Notepad
+[HKEY_CURRENT_USER\Software\Classes\*\shell\Edit\command]
+@="C:\\Windows\\system32\\notepad.exe \"%1\""
+
+;Environment
+[HKEY_CURRENT_USER\Environment]
+"GIT_CONFIG_GLOBAL"="C:\\Users\\Administrator\\Downloads\\Vim\\home\\.config\\gitconfig"
+
+;Objects
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}]
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}]
+{{- end }}
+
