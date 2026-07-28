@@ -25,6 +25,9 @@ function Prompt {
     "[$esc[$color`m$env:COMPUTERNAME$esc[0m] $currentPath> "
 }
 
+Remove-Item Alias:rm -Force
+Remove-Item Alias:ls -Force
+
 function which { 
     Get-Command $args | Select-Object -ExpandProperty Definition 
 }
