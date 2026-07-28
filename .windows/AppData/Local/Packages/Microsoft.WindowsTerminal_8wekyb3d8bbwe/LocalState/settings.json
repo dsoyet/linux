@@ -54,12 +54,15 @@
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
+                "opacity": 80,
                 "name": "Windows PowerShell"
             },
             {
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
+                "elevate": true,
+                "opacity": 80,
                 "name": "Command Prompt"
             },
             {
@@ -134,7 +137,7 @@
             "yellow": "#F4B400"
         }
     ],
-    "startupActions": "split-pane -H ; new-tab ; split-pane -H ; new-tab ; split-pane -H ; new-tab ; split-pane -H",
+    "startupActions": "new-tab -p \"Windows PowerShell\";new-tab -p \"PowerShell\";new-tab -p \"Command Prompt\"",
     "tabWidthMode": "compact",
     "theme": "system",
     "themes": [],

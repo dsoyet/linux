@@ -10,12 +10,25 @@ function Prompt { $currentPath = (Get-Location).Path.Replace($HOME, '~');
 . "$PSScriptRoot\ReadLine.ps1"
 . "$PSScriptRoot\..\Config\Function.ps1"
 
+Remove-Alias -Name ls -Force
+
 function which { Get-Command $args | Select-Object -ExpandProperty Definition }
 function htop  { btm -b }
 function env   { Get-ChildItem Env: }
 function ls    { lsd -lA $args}
 function ll    { lsd -1A $args}
 function xdg   { lsd --tree --depth 1 -A ~/AppData/Local ~/AppData/LocalLow ~/AppData/Roaming }
+
+function vim {
+    $root = "E:\Vim"
+    $env:XDG_CONFIG_HOME = "$root\home\.config"
+    $env:XDG_DATA_HOME   = "$root\home\.local\share"
+    $env:XDG_STATE_HOME  = "$root\home\.local\state"
+    $env:XDG_CACHE_HOME  = "$root\home\.cache"
+    $exe = if (Test-Path "$root\bin\nvim.exe") { "$root\bin\nvim.exe" } else { "$root\nvim.exe" }
+    if (-not (Test-Path $exe)) { Write-Error "找不到 nvim.exe"; return }
+    & $exe $args
+}
 
 function fastboot {  $env:HOME = "E:\Mpv\tools"; & "E:\Mpv\tools\fastboot.exe" $args }
 function jf { E:\Jellyfin\system\jellyfin.exe -d E:\Jellyfin\storage }
