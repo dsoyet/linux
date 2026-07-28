@@ -17,5 +17,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 -- 可选：显示行号
 -- vim.opt.number = true
 
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+
 -- 可选：启用相对行号
 -- vim.opt.relativenumber = true
