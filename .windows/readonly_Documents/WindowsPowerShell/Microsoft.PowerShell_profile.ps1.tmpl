@@ -13,6 +13,9 @@ $env:Path += ';E:\Mpv;E:\Telegram;E:\Vim\bin;E:\HD\Rust\cargo\bin;E:\HD\Js;E:\HD
 {{- if eq .chezmoi.windowsVersion.productName "Windows Server 2022 Datacenter" }}
 $env:Path = 'C:\Users\Administrator\Downloads\Vim\home\.local\bin;' + $env:Path
 {{- end }}
+{{- if eq .chezmoi.windowsVersion.productName "Windows Server 2025 Datacenter" }}
+$env:Path = 'C:\Users\Administrator\Downloads\Vim\home\.local\bin;' + $env:Path
+{{- end }}
 
 function Prompt {
     $currentPath = (Get-Location).Path.Replace($HOME, '~')
