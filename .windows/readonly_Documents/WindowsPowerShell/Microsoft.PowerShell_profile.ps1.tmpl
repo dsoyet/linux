@@ -6,7 +6,13 @@ if (-not $PSScriptRoot) {
     $PSScriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 }
 
+{{- if eq .chezmoi.windowsVersion.productName "Windows 10 Enterprise LTSC 2024" }}
 $env:Path += ';E:\Mpv;E:\Telegram;E:\Vim\bin;E:\HD\Rust\cargo\bin;E:\HD\Js;E:\HD\Js\bootstrap;C:\Program Files\Git\usr\bin;C:\Program Files\VMware\VMware Workstation' 
+{{- end }}
+
+{{- if eq .chezmoi.windowsVersion.productName "Windows Server 2022 Datacenter" }}
+$env:Path = 'C:\Users\Administrator\Downloads\chezmoi;' + $env:Path
+{{- end }}
 
 function Prompt {
     $currentPath = (Get-Location).Path.Replace($HOME, '~')
@@ -61,3 +67,8 @@ function vim {
 }
 {{- end }}
 
+{{- if eq .chezmoi.windowsVersion.productName "Windows Server 2022 Datacenter" }}
+function cz { 
+    C:\Users\Administrator\Downloads\Chezmoi\chezmoi.exe --config "C:\Users\Administrator\Downloads\Chezmoi\chezmoi.toml" $args 
+}
+{{- end }}
