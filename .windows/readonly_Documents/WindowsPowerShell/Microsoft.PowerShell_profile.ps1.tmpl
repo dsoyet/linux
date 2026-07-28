@@ -80,3 +80,8 @@ function cz {
     chezmoi --config "C:\Users\Administrator\Downloads\Chezmoi\chezmoi.toml" $args 
 }
 {{- end }}
+{{- if eq .chezmoi.windowsVersion.productName "Windows Server 2025 Datacenter" }}
+function cz { 
+    chezmoi --config "C:\Users\Administrator\Downloads\Chezmoi\chezmoi.toml" $args 
+}
+{{- end }}
