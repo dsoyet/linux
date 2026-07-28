@@ -109,6 +109,7 @@
 
   # --- GPG Agent ---
   programs.gnupg.agent.enable = true;
+  environment.variables.GNUPGHOME = "$HOME/.local/share/gnupg";
 
   # --- Shell ---
   programs.bash.promptInit = ''
