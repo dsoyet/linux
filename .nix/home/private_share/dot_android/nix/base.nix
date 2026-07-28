@@ -71,6 +71,8 @@
     vimAlias = true;
     configure = {
       customRC = ''
+        vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+	vim.opt.number = true
         set mouse=
         set viminfo='100,<50,s10,h
         autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
