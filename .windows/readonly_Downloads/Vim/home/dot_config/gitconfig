@@ -1,0 +1,10 @@
+[user]
+	email = dsoyet@outlook.com
+	name = Lattice Sum
+[pull]
+	rebase = true
+[credential "https://gitee.com"]
+	provider = generic
+[core]
+	autocrlf = false
+	sshCommand = 'C:\\Windows\\System32\\OpenSSH\\ssh.exe'
