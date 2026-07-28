@@ -47,6 +47,7 @@ function ls {
 function ll { 
     lsd -lA $args
 }
+Set-Alias -Name l -Value ll
 
 function tree {
     lsd --tree --depth 2 -A $args
