@@ -7,14 +7,14 @@ if (-not $PSScriptRoot) {
 }
 
 {{- if eq .chezmoi.windowsVersion.productName "Windows 10 Enterprise LTSC 2024" }}
-$env:Path += ';E:\Mpv;E:\Telegram;E:\Vim\bin;E:\HD\Rust\cargo\bin;E:\HD\Js;E:\HD\Js\bootstrap;C:\Program Files\Git\usr\bin;C:\Program Files\VMware\VMware Workstation' 
+$env:Path += ";E:\Mpv;E:\Telegram;E:\Vim\bin;E:\HD\Rust\cargo\bin;E:\HD\Js;E:\HD\Js\bootstrap;C:\Program Files\Git\usr\bin;C:\Program Files\VMware\VMware Workstation;$env:USERPROFILE\Downloads\Vim\home\.local\bin"
 {{- end }}
 
 {{- if eq .chezmoi.windowsVersion.productName "Windows Server 2022 Datacenter" }}
-$env:Path = 'C:\Users\Administrator\Downloads\Vim\home\.local\bin;' + $env:Path
+$env:Path = "$env:USERPROFILE\Downloads\Vim\home\.local\bin;" + $env:Path
 {{- end }}
 {{- if eq .chezmoi.windowsVersion.productName "Windows Server 2025 Datacenter" }}
-$env:Path = 'C:\Users\Administrator\Downloads\Vim\home\.local\bin;' + $env:Path
+$env:Path = "$env:USERPROFILE\Downloads\Vim\home\.local\bin;" + $env:Path
 {{- end }}
 
 function Prompt {
