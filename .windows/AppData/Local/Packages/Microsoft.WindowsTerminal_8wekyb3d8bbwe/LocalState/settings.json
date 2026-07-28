@@ -137,7 +137,7 @@
             "yellow": "#F4B400"
         }
     ],
-    "startupActions": "new-tab -p \"Windows PowerShell\";new-tab -p \"PowerShell\";new-tab -p \"Command Prompt\"",
+    "startupActions": "new-tab -p \"Windows PowerShell\";new-tab -p \"PowerShell\";new-tab -p \"PowerShell\";new-tab -p \"Command Prompt\"",
     "tabWidthMode": "compact",
     "theme": "system",
     "themes": [],
