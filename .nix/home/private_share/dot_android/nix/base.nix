@@ -69,17 +69,27 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
-    configure = {
-      customRC = ''
-        set mouse=
-        set viminfo='100,<50,s10,h
-        autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-	lua << EOF
-          vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-          vim.opt.number = true
-        EOF
-      '';
-    };
+    extraLuaConfig = ''
+    -- 透明背景
+    vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+    
+    -- 基础设置
+    vim.opt.number = true
+    vim.opt.mouse = ""
+    vim.opt.shada = "'100,<50,s10,h"
+    
+    -- 记住上次打开位置
+    vim.api.nvim_create_autocmd("BufReadPost", {
+      pattern = "*",
+      callback = function()
+        local mark = vim.api.nvim_buf_get_mark(0, '"')
+        local lnum = mark[1]
+        if lnum > 1 and lnum <= vim.api.nvim_buf_line_count(0) then
+          vim.api.nvim_win_set_cursor(0, { lnum, mark[2] })
+        end
+      end
+    })
+  '';
   };
 
   # --- Nix 工具 ---
