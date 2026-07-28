@@ -16,8 +16,9 @@ Remove-Item Alias:ls -Force
 function which { Get-Command $args | Select-Object -ExpandProperty Definition }
 function htop  { btm -b }
 function env   { Get-ChildItem Env: }
-function ls    { lsd -lA $args}
-function ll    { lsd -1A $args}
+function ls    { lsd -1A $args}
+Set-Alias -Name l -Value ls
+function ll    { lsd -lA $args}
 function tree  { lsd --tree --depth 2 -A $args}
 function xdg   { lsd --tree --depth 1 -A ~/AppData/Local ~/AppData/LocalLow ~/AppData/Roaming }
 
