@@ -10,8 +10,8 @@ function Prompt { $currentPath = (Get-Location).Path.Replace($HOME, '~');
 . "$PSScriptRoot\ReadLine.ps1"
 . "$PSScriptRoot\..\Config\Function.ps1"
 
-Remove-Alias -Name ls -Force
-Remove-Alias -Name rm -Force
+Remove-Item Alias:rm -Force
+Remove-Item Alias:ls -Force
 
 function which { Get-Command $args | Select-Object -ExpandProperty Definition }
 function htop  { btm -b }
