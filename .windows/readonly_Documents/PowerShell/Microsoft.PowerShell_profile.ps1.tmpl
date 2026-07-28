@@ -35,7 +35,7 @@ function jf { E:\Jellyfin\system\jellyfin.exe -d E:\Jellyfin\storage }
 {{- if eq .chezmoi.windowsVersion.productName "Windows 10 Enterprise LTSC 2024" }}
 function cz { E:\Mpv\tools\chezmoi.exe --config "E:\Job\chezmoi\chezmoi.toml" @args }
 {{- end }}
-{{- if eq .chezmoi.windowsVersion.productName "Windows 10 Enterprise LTSC 2024" }}
+{{- if eq .chezmoi.windowsVersion.productName "Windows Server 2025 Datacenter" }}
 function cz { E:\Mpv\tools\chezmoi.exe --config "E:\Job\chezmoi\chezmoi.toml" @args }
 {{- end }}
 function oss { E:\Mpv\tools\ossutil.exe -c "E:\Job\chezmoi\oss" @args }
