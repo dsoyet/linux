@@ -22,6 +22,7 @@ function ll    { lsd -lA $args}
 function tree  { lsd --tree --depth 2 -A $args}
 function xdg   { lsd --tree --depth 1 -A ~/AppData/Local ~/AppData/LocalLow ~/AppData/Roaming }
 function hx    { E:\Vim\helix\hx.exe -c E:\Vim\helix\config.toml --log E:\Vim\helix\helix.log }
+
 function vim {
     $root = "E:\Vim"
     $env:XDG_CONFIG_HOME = "$root\home\.config"
