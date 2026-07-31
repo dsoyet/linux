@@ -17,4 +17,6 @@ gtkmm3 open-vm-tools-wayland
 
 pacstrap /mnt base base-devel btrfs-progs devtools go linux linux-firmware neovim rustup terminus-font intel-ucode sbctl iwd nvidia-open
 
-
+{{- if eq .hardware "laptop" }}
+{{- output "pacman" "-Qeq" -}}
+{{- end }}
