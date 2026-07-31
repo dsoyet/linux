@@ -9,6 +9,9 @@ args = ["--rcfile", "~/.config/bash/bashrc"]
 [font]
 size = 14
 
+[selection]
+save_to_clipboard = true
+
 [font.normal]
 #family = "Sarasa Term SC"
 
