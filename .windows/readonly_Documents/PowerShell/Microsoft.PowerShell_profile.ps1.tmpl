@@ -1,7 +1,12 @@
 #https://learn.microsoft.com/en-us/powershell/
 Set-PSReadLineOption -EditMode Emacs
 
+{{- if eq .chezmoi.windowsVersion.productName "Windows 10 Enterprise LTSC 2024" }}
 $env:Path += ";E:\Vim\home\.local\bin;E:\Mpv;E:\Telegram;E:\Vim\bin;E:\HD\Rust\cargo\bin;E:\HD\Js;E:\HD\Js\bootstrap;C:\Program Files\VMware\VMware Workstation;$env:USERPROFILE\Downloads\Vim\home\.local\bin;C:\Program Files\Git\usr\bin"
+{{- end }}
+{{- if eq .chezmoi.windowsVersion.productName "Windows Server 2025 Datacenter" }}
+$env:Path += ";E:\Vim\home\.local\bin;E:\Mpv;E:\Telegram;E:\Vim\bin;E:\HD\Rust\bin\toolchains\stable-x86_64-pc-windows-msvc\bin;E:\HD\Js;E:\HD\Js\bootstrap;$env:USERPROFILE\Downloads\Vim\home\.local\bin;C:\Program Files\Git\usr\bin"
+{{- end }}
 
 function Prompt { $currentPath = (Get-Location).Path.Replace($HOME, '~'); 
     $IsAdmin=([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator);
