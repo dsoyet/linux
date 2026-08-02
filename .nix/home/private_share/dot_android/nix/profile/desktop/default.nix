@@ -5,6 +5,22 @@
     ../../base.nix
   ];
 
+  # systemd-resolved DNS 委派
+  environment.etc."systemd/dns-delegate.d/share.conf".text = ''
+    [Delegate]
+    DNS=223.5.5.5
+    Domains=deepseek.com
+    Domains=115.com
+    Domains=115vod.com
+    Domains=115cdn.net
+    Domains=cn
+    Domains=com.cn
+    Domains=net.cn
+    Domains=org.cn
+    Domains=gov.cn
+    Domains=edu.cn
+  '';
+
   # --- 音频 ---
   services.pipewire = {
     enable = true;

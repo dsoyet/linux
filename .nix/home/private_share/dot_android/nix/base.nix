@@ -62,7 +62,12 @@
     delta
     aliyun-cli
     helix
+    ouch
+    pkgs.yaziPlugins.ouch
   ];
+
+  # --- Yazi ---
+  programs.yazi.enable = true;
 
   # --- Neovim ---
   programs.neovim = {
