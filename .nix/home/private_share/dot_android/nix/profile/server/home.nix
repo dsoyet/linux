@@ -19,7 +19,8 @@ lib.recursiveUpdate (import ../common.nix { inherit config pkgs lib; }) {
       # fi
     '';
     shellAliases = {
-    xdg = "lsd --tree --depth 1 -A ~/.cache ~/.config ~/.local";
-    lsblk = "lsblk -n -o NAME,SIZE,FSTYPE,MOUNTPOINT";
+      xdg = "lsd --tree --depth 1 -A ~/.cache ~/.config ~/.local";
+      lsblk = "lsblk -n -o NAME,SIZE,FSTYPE,MOUNTPOINT";
+    };
   };
 }
