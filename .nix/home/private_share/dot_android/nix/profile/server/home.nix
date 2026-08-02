@@ -21,6 +21,7 @@ lib.recursiveUpdate (import ../common.nix { inherit config pkgs lib; }) {
     shellAliases = {
       xdg = "lsd --tree --depth 1 -A ~/.cache ~/.config ~/.local";
       lsblk = "lsblk -n -o NAME,SIZE,FSTYPE,MOUNTPOINT";
+      ali = "aliyun --config-path ~/.android/share/aliyun.json";
     };
   };
 }
