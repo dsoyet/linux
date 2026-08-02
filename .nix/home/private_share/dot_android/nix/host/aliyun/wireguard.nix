@@ -72,6 +72,8 @@ in
       { publicKey = "9TEzKtRUC1bTYmhsSYPX2kQ9h2z/CDykLDtar5UUdUk="; allowedIPs = [ "192.168.64.22/32" ]; }
       # rar8x1
       { publicKey = "w/mFzZG8izFFYFu8ZtIjslmzTaJ6G27uY7HiFjmHURo="; allowedIPs = [ "192.168.64.23/32" ]; }
+      # u530x1
+      { publicKey = "Vc08oDRpEcVJHWkLqyFNtOmY/hj9UQtc0+U2qOqqI3k="; allowedIPs = [ "192.168.64.24/32" ]; }
     ];
   };
 
