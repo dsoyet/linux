@@ -68,8 +68,10 @@ in
       # 使用 wg-add-peer <name> <ip> 生成后添加到这里
       # g634j1
       { publicKey = "JIrPdzBVDgrkFgHabAIwIH50NlpiNgo6mqvwfnzxE3g="; allowedIPs = [ "192.168.64.21/32" ]; }
-      # rar8x1
+      # u546x1
       { publicKey = "9TEzKtRUC1bTYmhsSYPX2kQ9h2z/CDykLDtar5UUdUk="; allowedIPs = [ "192.168.64.22/32" ]; }
+      # rar8x1
+      { publicKey = "w/mFzZG8izFFYFu8ZtIjslmzTaJ6G27uY7HiFjmHURo="; allowedIPs = [ "192.168.64.23/32" ]; }
     ];
   };
 
