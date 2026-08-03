@@ -74,9 +74,11 @@ Windows Registry Editor Version 5.00
 "GIT_CONFIG_GLOBAL"="E:\\Job\\chezmoi\\gitconfig"
 "CUDA_PATH"="E:\\HD\\CUDA"
 "NODE_HOME"="E:\\HD\\Js"
-"STHOMEDIR"="E:\\Mpv\\Syncthing"
+"UV_CACHE_DIR"="E:\\HD\\Python\\cache"
+"UV_TOOL_DIR"="E:\\HD\\Python\\bin\\tools"
 "CARGO_HOME"="E:\\HD\\Rust\\cargo"
 "RUSTUP_HOME"="E:\\HD\\Rust\\bin"
+"UV_PYTHON_INSTALL_DIR"="E:\\HD\\Python\\bin"
 
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USB\VID_8087&PID_0033\5&274d72c6&0&14\Device Parameters]
