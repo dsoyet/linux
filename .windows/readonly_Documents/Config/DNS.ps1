@@ -14,6 +14,7 @@ $domains = @(
     ".115.com",
     ".115vod.com",
     ".115cdn.net",
+    ".115cdn.com",
     ".cn",
     ".com.cn",
     ".net.cn",
