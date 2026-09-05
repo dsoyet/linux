@@ -1,6 +1,7 @@
 [Delegate]
 DNS=223.5.5.5
 Domains=deepseek.com
+Domains=dnse1.com
 Domains=115.com
 Domains=115vod.com
 Domains=115cdn.net
