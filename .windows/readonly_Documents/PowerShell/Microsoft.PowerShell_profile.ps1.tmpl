@@ -1,7 +1,7 @@
 #https://learn.microsoft.com/en-us/powershell/
 Set-PSReadLineOption -EditMode Emacs
 
-{{- if eq .chezmoi.windowsVersion.productName "Windows 10 Enterprise LTSC 2024" }}
+{{- if eq .chezmoi.windowsVersion.productName "Windows 10 Enterprise" }}
 $env:Path += ";E:\Vim\home\.local\bin;E:\Mpv;E:\Telegram;E:\Vim\bin;E:\HD\Rust\cargo\bin;E:\HD\Js;E:\HD\Js\bootstrap;C:\Program Files\VMware\VMware Workstation;$env:USERPROFILE\.local\bin;$env:USERPROFILE\Downloads\Vim\home\.local\bin;C:\Program Files\Git\usr\bin"
 {{- end }}
 {{- if eq .chezmoi.windowsVersion.productName "Windows Server 2025 Datacenter" }}
@@ -40,7 +40,7 @@ function vim {
 
 function fastboot {  $env:HOME = "E:\Mpv\tools"; & "E:\Mpv\tools\fastboot.exe" $args }
 function jf { E:\Jellyfin\system\jellyfin.exe -d E:\Jellyfin\storage }
-{{- if eq .chezmoi.windowsVersion.productName "Windows 10 Enterprise LTSC 2024" }}
+{{- if eq .chezmoi.windowsVersion.productName "Windows 10 Enterprise" }}
 function cz { E:\Mpv\tools\chezmoi.exe --config "E:\Job\chezmoi\chezmoi.toml" @args }
 {{- end }}
 {{- if eq .chezmoi.windowsVersion.productName "Windows Server 2025 Datacenter" }}
