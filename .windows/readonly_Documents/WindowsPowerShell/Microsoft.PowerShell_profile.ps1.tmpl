@@ -6,7 +6,7 @@ if (-not $PSScriptRoot) {
     $PSScriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 }
 
-{{- if eq .chezmoi.windowsVersion.productName "Windows 10 Enterprise LTSC 2024" }}
+{{- if eq .chezmoi.windowsVersion.productName "Windows 10 Enterprise" }}
 $env:Path += ";E:\Mpv;E:\Telegram;E:\Vim\bin;E:\HD\Rust\cargo\bin;E:\HD\Js;E:\HD\Js\bootstrap;C:\Program Files\Git\usr\bin;C:\Program Files\VMware\VMware Workstation;$env:USERPROFILE\Downloads\Vim\home\.local\bin"
 {{- end }}
 
@@ -61,7 +61,7 @@ function xdg {
     lsd --tree --depth 1 -A ~/AppData/Local ~/AppData/LocalLow ~/AppData/Roaming 
 }
 
-{{- if eq .chezmoi.windowsVersion.productName "Windows 10 Enterprise LTSC 2024" }}
+{{- if eq .chezmoi.windowsVersion.productName "Windows 10 Enterprise" }}
 function cz { 
     E:\Mpv\tools\chezmoi.exe --config "E:\Job\chezmoi\chezmoi.toml" $args 
 }
