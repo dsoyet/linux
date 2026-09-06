@@ -137,7 +137,7 @@
             "yellow": "#F4B400"
         }
     ],
-{{- if eq .chezmoi.windowsVersion.productName "Windows 10 Enterprise LTSC 2024" }}
+{{- if eq .chezmoi.windowsVersion.productName "Windows 10 Enterprise" }}
     "startupActions": "new-tab -p \"Windows PowerShell\";new-tab -p \"PowerShell\";new-tab -p \"PowerShell\";new-tab -p \"Command Prompt\"",
 {{- end }}
 {{- if eq .chezmoi.windowsVersion.productName "Windows Server 2025 Datacenter" }}
