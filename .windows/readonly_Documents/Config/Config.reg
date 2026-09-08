@@ -93,9 +93,9 @@ Windows Registry Editor Version 5.00
 "RealTimeIsUniversal"=dword:00000001
 
 ; 关闭 NumberPad 虚拟数字键盘
-;[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AsusNumpadPTP\Parameters\APSettingParameters]
-;"NUMPAD_00"=dword:00000000
-;"COMMONFEATURE_00"=dword:00000000
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AsusNumpadPTP\Parameters\APSettingParameters]
+"NUMPAD_00"=dword:00000000
+"COMMONFEATURE_00"=dword:00000000
 
 ;fix cjk
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink]
