@@ -1,6 +1,9 @@
 {{- if eq .hardware "station" -}}
 root=UUID={{.uuid}}
 {{- end }}
+{{- if eq .hardware "nas" -}}
+root=UUID={{.uuid}}
+{{- end }}
 {{- if eq .hardware "laptop" -}}
 root=UUID={{.uuid}}
 {{- end }}
