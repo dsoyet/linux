@@ -4,6 +4,10 @@ vo=gpu-next
 gpu-api=vulkan
 hwdec=nvdec
 {{- end }}
+{{- if eq .hardware "nas" }}
+gpu-api=vulkan
+hwdec=vulkan
+{{- end }}
 {{- if eq .hardware "laptop" }}
 gpu-api=vulkan
 hwdec=vulkan
