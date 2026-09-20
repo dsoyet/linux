@@ -10,6 +10,9 @@ fi
 {{- if eq .hardware "laptop" }}
 export ANV_DEBUG=video-decode,video-encode
 {{- end }}
+{{- if eq .hardware "nas" }}
+export ANV_DEBUG=video-decode,video-encode
+{{- end }}
 
 alias xdg='lsd --tree --depth 1 -A ~/.cache ~/.config ~/.local'
 alias ll='lsd -lA'
