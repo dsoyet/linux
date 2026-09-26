@@ -70,6 +70,10 @@ function npp {
     E:\Notepad\notepad++.exe $args 
 }
 
+function hx    {
+    E:\Vim\helix\hx.exe -c E:\Vim\helix\config.toml --log E:\Vim\helix\helix.log $args
+}
+
 function vim {
     $root = "E:\Vim"
     $env:XDG_CONFIG_HOME = "$root\home\.config"
