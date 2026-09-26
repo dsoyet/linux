@@ -40,6 +40,10 @@ Windows Registry Editor Version 5.00
 [-HKEY_CLASSES_ROOT\Folder\shell\pintohome]
 [-HKEY_CLASSES_ROOT\Network\shell\pintohome]
 
+;OpenSSH
+[HKEY_LOCAL_MACHINE\SOFTWARE\OpenSSH]
+"DefaultShell"="C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+
 ;Play
 [HKEY_CURRENT_USER\Software\Classes\Directory\shell\Play\command]
 @="E:\\Mpv\\Mpv.exe \"%1\""
