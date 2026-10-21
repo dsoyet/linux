@@ -32,6 +32,17 @@
     '';
   };
 
+  # --- Syncthing ---
+  systemd.services.syncthing.serviceConfig.WorkingDirectory = "/var/lib/syncthing";
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true; # Open ports in the firewall for Syncthing. (NOTE: this will not open syncthing gui port)
+    guiAddress = "192.168.64.1:8384"; # By default syncthing only listens to localhost
+    settings = {
+      defaults.folder.path = "/var/lib/syncthing/data";
+    };
+  };
+
   # --- SSH 加固 ---
   services.openssh.settings = {
     PermitRootLogin = "prohibit-password";
