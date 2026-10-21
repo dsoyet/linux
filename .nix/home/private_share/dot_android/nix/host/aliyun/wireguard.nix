@@ -69,13 +69,17 @@ in
       # m463p1
       { publicKey = "/1obUmFSVavoAmoYw73IeCrnV94xTQ+qqQxYMgG/8Cg="; allowedIPs = [ "192.168.64.20/32" ]; }
       # g634j1
-      { publicKey = "JIrPdzBVDgrkFgHabAIwIH50NlpiNgo6mqvwfnzxE3g="; allowedIPs = [ "192.168.64.21/32" ]; }
+      { publicKey = "XDDMmdfboJ4fz+VBjGqT4bhK9p3B8sppXBMtaNVYHkg="; allowedIPs = [ "192.168.64.21/32" ]; }
       # u546x1
       { publicKey = "9TEzKtRUC1bTYmhsSYPX2kQ9h2z/CDykLDtar5UUdUk="; allowedIPs = [ "192.168.64.22/32" ]; }
       # rar8x1
       { publicKey = "w/mFzZG8izFFYFu8ZtIjslmzTaJ6G27uY7HiFjmHURo="; allowedIPs = [ "192.168.64.23/32" ]; }
       # u530x1
       { publicKey = "Vc08oDRpEcVJHWkLqyFNtOmY/hj9UQtc0+U2qOqqI3k="; allowedIPs = [ "192.168.64.24/32" ]; }
+      # r426x1
+      { publicKey = "1adcKFb3BcoSBeV3lrJUQim2Xl6opDpT7m5gJjqtL2A="; allowedIPs = [ "192.168.64.25/32" ]; }
+      # f241x1
+      { publicKey = "v00/PZGmPvvV57htsZCPa1XZsYSuizXEe4bhwmXXRQk="; allowedIPs = [ "192.168.64.26/32" ]; }
     ];
   };
 

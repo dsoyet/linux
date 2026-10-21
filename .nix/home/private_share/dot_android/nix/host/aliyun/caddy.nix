@@ -1,25 +1,52 @@
 { config, lib, pkgs, ... }:
 
 {
-  # --- Caddy Web Server + 自动 HTTPS (Let's Encrypt) ---
   services.caddy = {
     enable = true;
     email = "dsoyet@foxmail.com";
-
-    # 全局指定 Let's Encrypt (Caddy 默认走 ZeroSSL)
     globalConfig = ''
       acme_ca https://acme-v02.api.letsencrypt.org/directory
     '';
 
     virtualHosts."dsoleaf.top" = {
       extraConfig = ''
-        root * /var/www/dsoleaf
-        file_server
         encode gzip
+
+        redir /auth /auth/ 308
+        redir /chuang /chuang/ 308
+
+        # Preserve the prefix: Authelia itself is configured to serve /auth/.
+        handle /auth/* {
+          reverse_proxy 127.0.0.1:9091
+        }
+
+        handle /chuang/* {
+          route {
+            # Never accept an identity asserted by the browser.
+            request_header -Remote-User
+            request_header -Remote-Groups
+            request_header -Remote-Email
+            request_header -Remote-Name
+
+            forward_auth 127.0.0.1:9091 {
+              uri /api/authz/forward-auth
+              copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+            }
+
+            # Replace only this responder with the private Windows Web service later.
+            # No unauthenticated fallback to static files if authentication fails.
+            respond "Authentication succeeded. Chuang backend is not connected yet." 503
+          }
+        }
+
+        # Existing homepage and all other static pages remain public.
+        handle {
+          root * /var/www/dsoleaf
+          file_server
+        }
       '';
     };
 
-    # www 子域名重定向到裸域
     virtualHosts."www.dsoleaf.top" = {
       extraConfig = ''
         redir https://dsoleaf.top{uri} permanent

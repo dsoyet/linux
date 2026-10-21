@@ -6,6 +6,7 @@
     ./hardware-configuration.nix
     ./image.nix
     ./caddy.nix
+    ./authelia.nix
     ./wireguard.nix
   ];
 
